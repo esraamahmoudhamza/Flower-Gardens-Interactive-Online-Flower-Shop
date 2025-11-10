@@ -1,0 +1,64 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.flower-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.flower-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.hero-bg {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('images/2.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: 1;
+}
+.hero-content {
+  z-index: 2;
+  position: relative;
+}
+.cart-modal {
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+.cart-modal.show {
+  transform: scale(1);
+}
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .filter-search {
+    flex-direction: column;
+  }
+}
+.quantity-btn {
+  background: #4ecdc4;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.quantity-btn:hover {
+  background: #45a29e;
+}

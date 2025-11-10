@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gardens Flower Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen text-gray-800">
+  <header class="bg-white shadow-md py-4 fixed top-0 w-full z-10">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-green-600 fade-in">Flower Gardens</h1>
+      <nav class="space-x-6">
+        <a href="#hero" class="text-gray-700 hover:text-green-600 transition">Home</a>
+        <a href="#flowers" class="text-gray-700 hover:text-green-600 transition">Flowers</a>
+        <a href="#contact" class="text-gray-700 hover:text-green-600 transition">Contact</a>
+        <button id="cart-toggle" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">Cart (0)</button>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero-bg text-white py-20 mt-16">
+    <div class="container mx-auto px-4 hero-content text-center">
+      <h2 class="text-5xl font-bold mb-4 fade-in">Welcome to Flower Gardens</h2>
+      <p class="text-xl mb-8 fade-in">Fresh flowers for every occasion. Bloom with us!</p>
+      <button onclick="scrollToFlowers()" class="bg-white text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition fade-in">Explore Our Collection</button>
+    </div>
+  </section>
+
+  <section id="flowers" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Our Flower Collection</h2>
+      <div class="flex justify-between items-center mb-8 filter-search">
+        <input type="text" id="search" placeholder="Search flowers..." class="px-4 py-2 border rounded w-full max-w-md focus:outline-none focus:ring-2 focus:ring-green-500" oninput="filterFlowers()">
+        <select id="category" class="px-4 py-2 border rounded ml-4 focus:outline-none focus:ring-2 focus:ring-green-500" onchange="filterFlowers()">
+          <option value="">All Categories</option>
+          <option value="Roses">Roses</option>
+          <option value="Tulips">Tulips</option>
+          <option value="Sunflowers">Sunflowers</option>
+          <option value="Lilies">Lilies</option>
+        </select>
+      </div>
+      <div id="flowers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <!-- Flowers will be dynamically generated -->
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-8 text-gray-800">Get in Touch</h2>
+      <p class="text-lg mb-4">Address: 15 Nile Street, Mohandessin, Giza, Egypt 12561</p>
+      <p class="text-lg mb-4">Phone: (+20) 123-456-7890</p>
+      <p class="text-lg">Email: Flower@Gardens.com</p>
+    </div>
+  </section>
+
+  <footer class="bg-green-600 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Flower Gardens. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center cart-modal">
+    <div class="bg-white rounded-lg p-8 max-w-lg w-full mx-4">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-2xl font-bold">Your Cart</h3>
+        <button id="close-cart" class="text-gray-500 text-2xl">&times;</button>
+      </div>
+      <div id="cart-items" class="space-y-4 max-h-80 overflow-y-auto"></div>
+      <div class="mt-4 pt-4 border-t">
+        <p class="text-xl font-semibold">Total: <span id="cart-total">$0.00</span></p>
+        <button class="bg-green-500 text-white px-6 py-2 rounded mt-4 w-full hover:bg-green-600 transition" onclick="checkout()">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
